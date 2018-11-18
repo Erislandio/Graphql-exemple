@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import { ApolloProvider } from 'react-apollo'
+
+import apolloClient from './services/Apollo'
+
 import './App.css';
+import TodoList from './components/TodoList';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hello 1</h1>
-      </div>
+      <ApolloProvider client={apolloClient}>
+        <div className="App">
+          <TodoList />
+        </div>
+      </ApolloProvider>
     );
   }
 }
